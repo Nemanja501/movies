@@ -16,6 +16,10 @@ class MoviesController extends Controller
         return view('pages.movies', compact('movies'));
     }
 
+    public function create(){
+        return view('pages.addmovie');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
