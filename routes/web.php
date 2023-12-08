@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', [MoviesController::class, 'index']);
+Route::get('/movies/{id}', [MoviesController::class, 'show']);
 Route::get('/add', function () {
     return view('pages.addmovie');
 });
