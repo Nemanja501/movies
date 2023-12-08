@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateMovieRequest;
+use App\Models\Comment;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
