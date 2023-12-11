@@ -7,10 +7,13 @@
     <input type="text" class="form-control" id="floatingInput" placeholder="title" name="title">
     <label for="floatingInput">Title</label>
   </div>
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="floatingInput" placeholder="genre" name="genre">
-    <label for="floatingInput">Genre</label>
-  </div>
+  <label>Select genre: </label>
+  <select name="genre_id" class="form-select" aria-label="Default select example">
+    @foreach ($allGenres as $genre)
+      <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+    @endforeach
+  </select>
+  <br>
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="floatingInput" placeholder="director" name="director">
     <label for="floatingInput">Director</label>

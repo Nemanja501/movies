@@ -2,35 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateMovieRequest;
-use App\Models\Comment;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
-class MoviesController extends Controller
+class GenresController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $movies = Movie::all();
-        return view('pages.movies', compact('movies'));
-    }
-
-    public function create(){
-        $allGenres = Genre::all();
-        return view('pages.addmovie', compact('allGenres'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateMovieRequest $request)
+    public function store(Request $request)
     {
-        $movie = Movie::create($request->all());
-        return redirect('/create')->with('status', 'Movie added successfully!');
+        //
     }
 
     /**
@@ -38,8 +29,10 @@ class MoviesController extends Controller
      */
     public function show(string $id)
     {
-        $movie = Movie::find($id);
-        return view('pages.singlemovie', compact('movie'));
+       $genre = Genre::find($id);
+       $movies = $genre->movies()->get();
+       return view('pages.singlegenre', compact('movies'));
+
     }
 
     /**
