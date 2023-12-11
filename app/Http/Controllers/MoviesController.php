@@ -16,8 +16,10 @@ class MoviesController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('pages.movies', compact('movies'));
+        $sidebarMovies = Movie::orderBy('created_at', 'desc')->limit(5)->get();
+        return view('pages.movies', compact('movies', 'sidebarMovies'));
     }
+
 
     public function create(){
         $allGenres = Genre::all();

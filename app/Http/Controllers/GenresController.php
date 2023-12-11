@@ -31,7 +31,8 @@ class GenresController extends Controller
     {
        $genre = Genre::find($id);
        $movies = $genre->movies()->get();
-       return view('pages.singlegenre', compact('movies'));
+       $sidebarMovies = Movie::orderBy('created_at', 'desc')->limit(5)->get();
+       return view('pages.singlegenre', compact('movies', 'sidebarMovies'));
 
     }
 

@@ -11,4 +11,5 @@
       </li>
     @endforeach
 </ol>
+@include('components.sidebar')
 @endsection
