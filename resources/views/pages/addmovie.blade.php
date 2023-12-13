@@ -7,7 +7,7 @@
     <input type="text" class="form-control" id="floatingInput" placeholder="title" name="title">
     <label for="floatingInput">Title</label>
   </div>
-  <label>Select genre: </label>
+  <label>Select genres: </label>
   <select name="genres[]" class="form-select" aria-label="Default select example" multiple>
     @foreach ($allGenres as $genre)
       <option value="{{ $genre->id }}">{{ $genre->name }}</option>
@@ -18,6 +18,13 @@
     <input type="text" class="form-control" id="floatingInput" placeholder="director" name="director">
     <label for="floatingInput">Director</label>
   </div>
+  <label>Add actors:</label>
+  <select name="actors[]" class="form-select" aria-label="Default select example" multiple>
+    @foreach ($allActors as $actor)
+      <option value="{{ $actor->id }}">{{ $actor->first_name }} {{ $actor->last_name }}</option>
+    @endforeach
+  </select>
+  <br>
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="floatingInput" placeholder="year" name="year_of_release">
     <label for="floatingInput">Year</label>

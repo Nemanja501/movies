@@ -2,16 +2,23 @@
 
 @section('content')
     <h1>Title: {{ $movie->title }}</h1>
-    <h1>Genres: 
+    <h2>Genres: 
         <br>
         @foreach ($movie->genres as $genre)
         <a style="text-decoration:none" href="../genres/{{ $genre->id }}">{{ $genre->name }}</a>
         <br>
         @endforeach
-    </h1>
-    <h1>Director: {{ $movie->director }}</h1>
-    <h1>Year: {{ $movie->year_of_release }}</h1>
-    <h2>Storyline: {{ $movie->storyline }}</h2>
+    </h2>
+    <h2>Director: {{ $movie->director }}</h2>
+    <h2>Actors: 
+        <br>
+        @foreach ($movie->actors as $actor)
+            {{ $actor->first_name }} {{ $actor->last_name }}
+            <br>
+        @endforeach
+    </h2>
+    <h2>Year: {{ $movie->year_of_release }}</h2>
+    <h4>Storyline: {{ $movie->storyline }}</h4>
 
     @include('components.addcomment')
     <br>

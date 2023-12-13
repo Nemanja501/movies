@@ -24,6 +24,8 @@ class CreateMovieRequest extends FormRequest
         return [
             'title' => 'required',
             'genres' => 'required',
+            'director' => 'required',
+            'actors' => 'required',
             'year_of_release' => 'int|min:1900|max:' . date('Y'),
             'storyline' => 'max:1000|string'
         ];

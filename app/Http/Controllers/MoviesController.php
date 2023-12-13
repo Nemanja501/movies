@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateMovieRequest;
+use App\Models\Actor;
 use App\Models\Comment;
 use App\Models\Genre;
 use App\Models\Movie;
@@ -23,7 +24,8 @@ class MoviesController extends Controller
 
     public function create(){
         $allGenres = Genre::orderBy('name', 'asc')->get();
-        return view('pages.addmovie', compact('allGenres'));
+        $allActors = Actor::orderBy('first_name', 'asc')->get();
+        return view('pages.addmovie', compact('allGenres', 'allActors'));
     }
 
     /**
@@ -33,6 +35,7 @@ class MoviesController extends Controller
     {
         $movie = Movie::create($request->all());
         $movie->genres()->attach($request->genres);
+        $movie->actors()->attach($request->actors);
         return redirect('/create')->with('status', 'Movie added successfully!');
     }
 

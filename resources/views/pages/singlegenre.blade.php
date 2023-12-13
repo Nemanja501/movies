@@ -1,6 +1,7 @@
 @extends('layout.default')
 
 @section('content')
+<h1>Movies in {{ $genre->name }} genre</h1>
 <ol class="list-group list-group-numbered">
     @foreach ($movies as $movie)
     <li class="list-group-item d-flex justify-content-between align-items-start">
