@@ -22,7 +22,7 @@ class MoviesController extends Controller
 
 
     public function create(){
-        $allGenres = Genre::all();
+        $allGenres = Genre::orderBy('name', 'asc')->get();
         return view('pages.addmovie', compact('allGenres'));
     }
 
@@ -32,6 +32,7 @@ class MoviesController extends Controller
     public function store(CreateMovieRequest $request)
     {
         $movie = Movie::create($request->all());
+        $movie->genres()->attach($request->genres);
         return redirect('/create')->with('status', 'Movie added successfully!');
     }
 

@@ -8,7 +8,7 @@
     <label for="floatingInput">Title</label>
   </div>
   <label>Select genre: </label>
-  <select name="genre_id" class="form-select" aria-label="Default select example">
+  <select name="genres[]" class="form-select" aria-label="Default select example" multiple>
     @foreach ($allGenres as $genre)
       <option value="{{ $genre->id }}">{{ $genre->name }}</option>
     @endforeach
